@@ -1,0 +1,23 @@
+[0.789s] Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/build --no-deps symlink_data
+[0.969s] running develop
+[1.046s] running egg_info
+[1.055s] creating visualization.egg-info
+[1.055s] writing visualization.egg-info/PKG-INFO
+[1.055s] writing dependency_links to visualization.egg-info/dependency_links.txt
+[1.055s] writing entry points to visualization.egg-info/entry_points.txt
+[1.055s] writing requirements to visualization.egg-info/requires.txt
+[1.055s] writing top-level names to visualization.egg-info/top_level.txt
+[1.056s] writing manifest file 'visualization.egg-info/SOURCES.txt'
+[1.072s] reading manifest file 'visualization.egg-info/SOURCES.txt'
+[1.073s] writing manifest file 'visualization.egg-info/SOURCES.txt'
+[1.082s] running build_ext
+[1.082s] Creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/python3.12/site-packages/visualization.egg-link (link to .)
+[1.083s] Installing visualization_node script to /home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/visualization
+[1.083s] 
+[1.083s] Installed /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization
+[1.083s] running symlink_data
+[1.083s] creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/ament_index/resource_index/packages
+[1.083s] symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/resource/visualization -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/ament_index/resource_index/packages
+[1.084s] symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/package.xml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization
+[1.084s] symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/rviz_config.rviz -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization
+[1.120s] Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization' returned '0': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/build --no-deps symlink_data

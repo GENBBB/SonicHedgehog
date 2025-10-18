@@ -1,0 +1,21 @@
+[0.936s] Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/build --no-deps symlink_data
+[1.128s] running develop
+[1.210s] running egg_info
+[1.219s] creating task1.egg-info
+[1.219s] writing task1.egg-info/PKG-INFO
+[1.219s] writing dependency_links to task1.egg-info/dependency_links.txt
+[1.219s] writing entry points to task1.egg-info/entry_points.txt
+[1.219s] writing requirements to task1.egg-info/requires.txt
+[1.220s] writing top-level names to task1.egg-info/top_level.txt
+[1.220s] writing manifest file 'task1.egg-info/SOURCES.txt'
+[1.238s] reading manifest file 'task1.egg-info/SOURCES.txt'
+[1.238s] writing manifest file 'task1.egg-info/SOURCES.txt'
+[1.249s] running build_ext
+[1.249s] Creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/lib/python3.12/site-packages/task1.egg-link (link to .)
+[1.250s] Installing task1 script to /home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/lib/task1
+[1.250s] 
+[1.250s] Installed /home/gennadii/TrueTech/task1/SonicHedgehog/build/task1
+[1.250s] running symlink_data
+[1.251s] creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/share/ament_index/resource_index/packages
+[1.251s] error: can't copy '/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/resource/task1': doesn't exist or not a regular file
+[1.301s] Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1' returned '1': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/build --no-deps symlink_data

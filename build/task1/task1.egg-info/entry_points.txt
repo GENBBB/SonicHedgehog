@@ -1,0 +1,2 @@
+[console_scripts]
+task1 = task1.task1:main

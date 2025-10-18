@@ -1,0 +1,2 @@
+[console_scripts]
+webots_adapter_node = webots_adapter.adapter_node:main

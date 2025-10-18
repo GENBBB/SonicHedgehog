@@ -1,0 +1,1 @@
+/home/gennadii/TrueTech/task1/SonicHedgehog/src/webots_adapter/launch/webots_adapter_launch.py

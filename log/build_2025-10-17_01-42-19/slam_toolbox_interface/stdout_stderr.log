@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating slam_toolbox_interface.egg-info
+writing slam_toolbox_interface.egg-info/PKG-INFO
+writing dependency_links to slam_toolbox_interface.egg-info/dependency_links.txt
+writing entry points to slam_toolbox_interface.egg-info/entry_points.txt
+writing requirements to slam_toolbox_interface.egg-info/requires.txt
+writing top-level names to slam_toolbox_interface.egg-info/top_level.txt
+writing manifest file 'slam_toolbox_interface.egg-info/SOURCES.txt'
+reading manifest file 'slam_toolbox_interface.egg-info/SOURCES.txt'
+writing manifest file 'slam_toolbox_interface.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages/slam-toolbox-interface.egg-link (link to .)
+Installing slam_wrapper_node script to /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/slam_toolbox_interface
+
+Installed /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface
+running symlink_data
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/ament_index/resource_index/packages
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/resource/slam_toolbox_interface -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/ament_index/resource_index/packages
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/package.xml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/launch
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/launch/slam_toolbox_interface_launch.py -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/launch
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/configs/slam_toolbox.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/configs

@@ -1,0 +1,17 @@
+[0.938s] Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/build --no-deps symlink_data
+[1.121s] running develop
+[1.201s] running egg_info
+[1.211s] writing slam_toolbox_interface.egg-info/PKG-INFO
+[1.211s] writing dependency_links to slam_toolbox_interface.egg-info/dependency_links.txt
+[1.211s] writing entry points to slam_toolbox_interface.egg-info/entry_points.txt
+[1.211s] writing requirements to slam_toolbox_interface.egg-info/requires.txt
+[1.212s] writing top-level names to slam_toolbox_interface.egg-info/top_level.txt
+[1.230s] reading manifest file 'slam_toolbox_interface.egg-info/SOURCES.txt'
+[1.231s] writing manifest file 'slam_toolbox_interface.egg-info/SOURCES.txt'
+[1.241s] running build_ext
+[1.241s] Creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages/slam-toolbox-interface.egg-link (link to .)
+[1.242s] Installing slam_wrapper_node script to /home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/slam_toolbox_interface
+[1.242s] 
+[1.242s] Installed /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface
+[1.242s] running symlink_data
+[1.286s] Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface' returned '0': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/build --no-deps symlink_data

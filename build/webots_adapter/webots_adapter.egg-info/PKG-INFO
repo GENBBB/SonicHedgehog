@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: webots_adapter
+Version: 0.1.0
+Summary: ROS2 adapter for Webots simulation: telemetry and cmd_vel interface
+Maintainer: GENBBB
+Maintainer-email: gengensav@gmail.com
+License: Apache-2.0
+Requires-Dist: setuptools
+Requires-Dist: transforms3d
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary

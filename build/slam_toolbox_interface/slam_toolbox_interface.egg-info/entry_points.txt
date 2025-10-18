@@ -1,0 +1,2 @@
+[console_scripts]
+slam_wrapper_node = slam_toolbox_interface.slam_wrapper_node:main

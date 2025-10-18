@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: sonic_hedgehog
+Version: 0.1.0
+Summary: Main meta-package for SonicHedgehog
+Maintainer: GENBBB
+Maintainer-email: gengesav@gmail.com
+License: Apache-2.0
+Requires-Dist: setuptools
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary

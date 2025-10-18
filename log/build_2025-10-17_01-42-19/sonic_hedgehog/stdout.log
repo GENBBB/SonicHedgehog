@@ -1,0 +1,31 @@
+running develop
+running egg_info
+creating sonic_hedgehog.egg-info
+writing sonic_hedgehog.egg-info/PKG-INFO
+writing dependency_links to sonic_hedgehog.egg-info/dependency_links.txt
+writing requirements to sonic_hedgehog.egg-info/requires.txt
+writing top-level names to sonic_hedgehog.egg-info/top_level.txt
+writing manifest file 'sonic_hedgehog.egg-info/SOURCES.txt'
+reading manifest file 'sonic_hedgehog.egg-info/SOURCES.txt'
+writing manifest file 'sonic_hedgehog.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/lib/python3.12/site-packages/sonic-hedgehog.egg-link (link to .)
+
+Installed /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog
+running symlink_data
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/ament_index/resource_index/packages
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/resource/sonic_hedgehog -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/ament_index/resource_index/packages
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/package.xml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/launch
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/launch/teleop_test.launch.py -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/launch
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/slam_toolbox.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/rviz_config.rviz -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/controller_server.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/planner_server.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/diff_drive_controller.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/ros2_control.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/bt_navigator.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/configs/nav2_config.yaml -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/configs
+creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/maps
+symbolically linking /home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog/maps/map_serial.data -> /home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog/share/sonic_hedgehog/maps

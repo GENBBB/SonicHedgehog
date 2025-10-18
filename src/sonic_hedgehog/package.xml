@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>sonic_hedgehog</name>
+  <version>0.1.0</version>
+  <description>Main meta-package for SonicHedgehog project</description>
+  <maintainer email="gengesav@gmail.com">GENBBB</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>slam_toolbox_interface</exec_depend>
+  <exec_depend>teleop_ui</exec_depend>
+  <exec_depend>visualization</exec_depend>
+  <exec_depend>webots_adapter</exec_depend>
+  <exec_depend>task1</exec_depend>
+<!--  <exec_depend>keypoint_manager</exec_depend>
+  <exec_depend>local_planner_nn</exec_depend>
+  <exec_depend>supervisor</exec_depend> -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

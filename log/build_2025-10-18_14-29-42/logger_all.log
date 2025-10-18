@@ -1,0 +1,316 @@
+[0.108s] DEBUG:colcon:Command line arguments: ['/home/gennadii/miniconda3/envs/sonic/bin/colcon', 'build', '--symlink-install']
+[0.108s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x769775f76e40>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x769775f76db0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x769775f76db0>>)
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.134s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.134s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/gennadii/TrueTech/task1/SonicHedgehog'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore_ament_install'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_pkg']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_pkg'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_meta']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_meta'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ros']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ros'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['cmake', 'python']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'cmake'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['python_setup_py']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python_setup_py'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extensions ['ignore', 'ignore_ament_install']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'ignore'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'ignore_ament_install'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extensions ['colcon_pkg']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'colcon_pkg'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extensions ['colcon_meta']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'colcon_meta'
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extensions ['ros']
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'ros'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extensions ['cmake', 'python']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'cmake'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'python'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extensions ['python_setup_py']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/global_planner_dstar) by extension 'python_setup_py'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extension 'ignore'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extension 'ignore_ament_install'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extensions ['colcon_pkg']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extension 'colcon_pkg'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extensions ['colcon_meta']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extension 'colcon_meta'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extensions ['ros']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(src/slam_toolbox_interface) by extension 'ros'
+[0.159s] DEBUG:colcon.colcon_core.package_identification:Package 'src/slam_toolbox_interface' with type 'ros.ament_python' and name 'slam_toolbox_interface'
+[0.159s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extension 'ignore_ament_install'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extensions ['colcon_pkg']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extension 'colcon_pkg'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extensions ['colcon_meta']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extension 'colcon_meta'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extensions ['ros']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/sonic_hedgehog) by extension 'ros'
+[0.160s] DEBUG:colcon.colcon_core.package_identification:Package 'src/sonic_hedgehog' with type 'ros.ament_python' and name 'sonic_hedgehog'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extensions ['ignore', 'ignore_ament_install']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extension 'ignore'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extension 'ignore_ament_install'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extensions ['colcon_pkg']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extension 'colcon_pkg'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extensions ['colcon_meta']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extension 'colcon_meta'
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extensions ['ros']
+[0.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/task1) by extension 'ros'
+[0.161s] DEBUG:colcon.colcon_core.package_identification:Package 'src/task1' with type 'ros.ament_python' and name 'task1'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extensions ['ignore', 'ignore_ament_install']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extension 'ignore'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extension 'ignore_ament_install'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extensions ['colcon_pkg']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extension 'colcon_pkg'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extensions ['colcon_meta']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extension 'colcon_meta'
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extensions ['ros']
+[0.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization) by extension 'ros'
+[0.162s] DEBUG:colcon.colcon_core.package_identification:Package 'src/visualization' with type 'ros.ament_python' and name 'visualization'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extensions ['ignore', 'ignore_ament_install']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extension 'ignore'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extension 'ignore_ament_install'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extensions ['colcon_pkg']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extension 'colcon_pkg'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extensions ['colcon_meta']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extension 'colcon_meta'
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extensions ['ros']
+[0.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/webots_adapter) by extension 'ros'
+[0.162s] DEBUG:colcon.colcon_core.package_identification:Package 'src/webots_adapter' with type 'ros.ament_python' and name 'webots_adapter'
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.162s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.163s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'cmake_target' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'slam_toolbox_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.176s] DEBUG:colcon.colcon_core.verb:Building package 'slam_toolbox_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface', 'merge_install': False, 'path': '/home/gennadii/TrueTech/task1/SonicHedgehog/src/slam_toolbox_interface', 'symlink_install': True, 'test_result_base': None}
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'cmake_target' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'cmake_clean_cache' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'cmake_clean_first' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'cmake_force_configure' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'ament_cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'catkin_cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'task1' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.176s] DEBUG:colcon.colcon_core.verb:Building package 'task1' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1', 'merge_install': False, 'path': '/home/gennadii/TrueTech/task1/SonicHedgehog/src/task1', 'symlink_install': True, 'test_result_base': None}
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'cmake_target' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'cmake_clean_cache' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'cmake_clean_first' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'cmake_force_configure' from command line to 'False'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'ament_cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'catkin_cmake_args' from command line to 'None'
+[0.176s] Level 5:colcon.colcon_core.verb:set package 'visualization' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.176s] DEBUG:colcon.colcon_core.verb:Building package 'visualization' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization', 'merge_install': False, 'path': '/home/gennadii/TrueTech/task1/SonicHedgehog/src/visualization', 'symlink_install': True, 'test_result_base': None}
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'cmake_args' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'cmake_target' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'cmake_clean_cache' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'cmake_clean_first' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'cmake_force_configure' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'ament_cmake_args' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'catkin_cmake_args' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'webots_adapter' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.177s] DEBUG:colcon.colcon_core.verb:Building package 'webots_adapter' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter', 'merge_install': False, 'path': '/home/gennadii/TrueTech/task1/SonicHedgehog/src/webots_adapter', 'symlink_install': True, 'test_result_base': None}
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'cmake_args' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'cmake_target' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'cmake_clean_cache' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'cmake_clean_first' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'cmake_force_configure' from command line to 'False'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'ament_cmake_args' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'catkin_cmake_args' from command line to 'None'
+[0.177s] Level 5:colcon.colcon_core.verb:set package 'sonic_hedgehog' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.177s] DEBUG:colcon.colcon_core.verb:Building package 'sonic_hedgehog' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/build/sonic_hedgehog', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/gennadii/TrueTech/task1/SonicHedgehog/install/sonic_hedgehog', 'merge_install': False, 'path': '/home/gennadii/TrueTech/task1/SonicHedgehog/src/sonic_hedgehog', 'symlink_install': True, 'test_result_base': None}
+[0.177s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.178s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.178s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/slam_toolbox_interface' with build type 'ament_python'
+[0.178s] Level 1:colcon.colcon_core.shell:create_environment_hook('slam_toolbox_interface', 'ament_prefix_path')
+[0.181s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.181s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/hook/ament_prefix_path.ps1'
+[0.181s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/hook/ament_prefix_path.dsv'
+[0.182s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/hook/ament_prefix_path.sh'
+[0.183s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.183s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.188s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/task1' with build type 'ament_python'
+[0.188s] Level 1:colcon.colcon_core.shell:create_environment_hook('task1', 'ament_prefix_path')
+[0.188s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/share/task1/hook/ament_prefix_path.ps1'
+[0.189s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/share/task1/hook/ament_prefix_path.dsv'
+[0.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/share/task1/hook/ament_prefix_path.sh'
+[0.190s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.190s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.193s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/visualization' with build type 'ament_python'
+[0.194s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization', 'ament_prefix_path')
+[0.194s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/hook/ament_prefix_path.ps1'
+[0.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/hook/ament_prefix_path.dsv'
+[0.196s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/hook/ament_prefix_path.sh'
+[0.197s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.197s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.201s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/webots_adapter' with build type 'ament_python'
+[0.202s] Level 1:colcon.colcon_core.shell:create_environment_hook('webots_adapter', 'ament_prefix_path')
+[0.202s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/hook/ament_prefix_path.ps1'
+[0.202s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/hook/ament_prefix_path.dsv'
+[0.202s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/hook/ament_prefix_path.sh'
+[0.203s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.203s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.356s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/slam_toolbox_interface'
+[0.356s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.356s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.506s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'task1' doesn't explicitly install the 'package.xml' file (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[0.508s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/task1'
+[0.508s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.508s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.647s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/visualization'
+[0.647s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.648s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.789s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/gennadii/TrueTech/task1/SonicHedgehog/src/webots_adapter'
+[0.789s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.789s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.117s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/build --no-deps symlink_data
+[1.121s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/build --no-deps symlink_data
+[1.123s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/build --no-deps symlink_data
+[1.125s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/build --no-deps symlink_data
+[1.453s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization', 'pythonpath_develop')
+[1.453s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/share/visualization/hook/pythonpath_develop.ps1'
+[1.454s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization' returned '0': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/build --no-deps symlink_data
+[1.454s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/share/visualization/hook/pythonpath_develop.dsv'
+[1.455s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/build/visualization/share/visualization/hook/pythonpath_develop.sh'
+[1.458s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization' for CMake module files
+[1.458s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization' for CMake config files
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/bin'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/pkgconfig/visualization.pc'
+[1.459s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/lib/python3.12/site-packages'
+[1.459s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization', 'pythonpath')
+[1.460s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/hook/pythonpath.ps1'
+[1.460s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/hook/pythonpath.dsv'
+[1.461s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/hook/pythonpath.sh'
+[1.461s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/bin'
+[1.461s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(visualization)
+[1.461s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/package.ps1'
+[1.462s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/package.dsv'
+[1.463s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/package.sh'
+[1.464s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/package.bash'
+[1.465s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/visualization/package.zsh'
+[1.465s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/gennadii/TrueTech/task1/SonicHedgehog/install/visualization/share/colcon-core/packages/visualization)
+[1.466s] Level 1:colcon.colcon_core.shell:create_environment_hook('webots_adapter', 'pythonpath_develop')
+[1.466s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/share/webots_adapter/hook/pythonpath_develop.ps1'
+[1.467s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/share/webots_adapter/hook/pythonpath_develop.dsv'
+[1.467s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter' returned '0': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/build --no-deps symlink_data
+[1.468s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/share/webots_adapter/hook/pythonpath_develop.sh'
+[1.468s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter' for CMake module files
+[1.469s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter' for CMake config files
+[1.469s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib'
+[1.469s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/bin'
+[1.469s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/pkgconfig/webots_adapter.pc'
+[1.470s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/python3.12/site-packages'
+[1.470s] Level 1:colcon.colcon_core.shell:create_environment_hook('webots_adapter', 'pythonpath')
+[1.470s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/hook/pythonpath.ps1'
+[1.470s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/hook/pythonpath.dsv'
+[1.471s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/hook/pythonpath.sh'
+[1.471s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/bin'
+[1.471s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(webots_adapter)
+[1.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/package.ps1'
+[1.472s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/package.dsv'
+[1.473s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/package.sh'
+[1.474s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/package.bash'
+[1.474s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/webots_adapter/package.zsh'
+[1.475s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/share/colcon-core/packages/webots_adapter)
+[1.476s] Level 1:colcon.colcon_core.shell:create_environment_hook('slam_toolbox_interface', 'pythonpath_develop')
+[1.476s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/share/slam_toolbox_interface/hook/pythonpath_develop.ps1'
+[1.477s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface' returned '0': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/build --no-deps symlink_data
+[1.478s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/share/slam_toolbox_interface/hook/pythonpath_develop.dsv'
+[1.479s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/build/slam_toolbox_interface/share/slam_toolbox_interface/hook/pythonpath_develop.sh'
+[1.480s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface' for CMake module files
+[1.480s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface' for CMake config files
+[1.481s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib'
+[1.481s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/bin'
+[1.482s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/pkgconfig/slam_toolbox_interface.pc'
+[1.482s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/lib/python3.12/site-packages'
+[1.482s] Level 1:colcon.colcon_core.shell:create_environment_hook('slam_toolbox_interface', 'pythonpath')
+[1.483s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/hook/pythonpath.ps1'
+[1.484s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/hook/pythonpath.dsv'
+[1.484s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/hook/pythonpath.sh'
+[1.485s] Level 1:colcon.colcon_core.environment:checking '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/bin'
+[1.485s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(slam_toolbox_interface)
+[1.486s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/package.ps1'
+[1.487s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/package.dsv'
+[1.487s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/package.sh'
+[1.488s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/package.bash'
+[1.488s] INFO:colcon.colcon_core.shell:Creating package script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/slam_toolbox_interface/package.zsh'
+[1.488s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/gennadii/TrueTech/task1/SonicHedgehog/install/slam_toolbox_interface/share/colcon-core/packages/slam_toolbox_interface)
+[1.490s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1' returned '1': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/task1/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/task1/build --no-deps symlink_data
+[1.499s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.500s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.500s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[1.500s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.505s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify2': 'notify2' not found
+[1.506s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.506s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.507s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify_send'
+[1.540s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.540s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/local_setup.ps1'
+[1.542s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/gennadii/TrueTech/task1/SonicHedgehog/install/_local_setup_util_ps1.py'
+[1.543s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/setup.ps1'
+[1.545s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/local_setup.sh'
+[1.545s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/gennadii/TrueTech/task1/SonicHedgehog/install/_local_setup_util_sh.py'
+[1.546s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/setup.sh'
+[1.547s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/local_setup.bash'
+[1.547s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/setup.bash'
+[1.548s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/local_setup.zsh'
+[1.549s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/gennadii/TrueTech/task1/SonicHedgehog/install/setup.zsh'

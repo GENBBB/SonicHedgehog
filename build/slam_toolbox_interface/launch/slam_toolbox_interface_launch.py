@@ -1,0 +1,1 @@
+/home/gennadii/TrueTech/task1/SonicHedgehog/src/slam_toolbox_interface/launch/slam_toolbox_interface_launch.py

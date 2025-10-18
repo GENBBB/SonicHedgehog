@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+launch/webots_adapter_launch.py
+resource/webots_adapter
+webots_adapter/__init__.py
+webots_adapter/adapter_node.py
+webots_adapter/sim_cmdvel_node.py
+webots_adapter/sim_telemetry_node.py
+webots_adapter.egg-info/PKG-INFO
+webots_adapter.egg-info/SOURCES.txt
+webots_adapter.egg-info/dependency_links.txt
+webots_adapter.egg-info/entry_points.txt
+webots_adapter.egg-info/requires.txt
+webots_adapter.egg-info/top_level.txt
+webots_adapter.egg-info/zip-safe

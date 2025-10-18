@@ -1,0 +1,17 @@
+[0.919s] Invoking command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/build --no-deps symlink_data
+[1.101s] running develop
+[1.182s] running egg_info
+[1.191s] writing webots_adapter.egg-info/PKG-INFO
+[1.191s] writing dependency_links to webots_adapter.egg-info/dependency_links.txt
+[1.192s] writing entry points to webots_adapter.egg-info/entry_points.txt
+[1.192s] writing requirements to webots_adapter.egg-info/requires.txt
+[1.192s] writing top-level names to webots_adapter.egg-info/top_level.txt
+[1.209s] reading manifest file 'webots_adapter.egg-info/SOURCES.txt'
+[1.210s] writing manifest file 'webots_adapter.egg-info/SOURCES.txt'
+[1.219s] running build_ext
+[1.220s] Creating /home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/python3.12/site-packages/webots-adapter.egg-link (link to .)
+[1.220s] Installing webots_adapter_node script to /home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/webots_adapter
+[1.221s] 
+[1.221s] Installed /home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter
+[1.221s] running symlink_data
+[1.266s] Invoked command in '/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter' returned '0': CONDA_PROMPT_MODIFIER=(sonic) DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/prefix_override:/home/gennadii/miniconda3/envs/sonic/lib/python3.12/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/gennadii/TrueTech/task1/SonicHedgehog/install/webots_adapter/lib/python3.12/site-packages:${PYTHONPATH} /home/gennadii/miniconda3/envs/sonic/bin/python3.12 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gennadii/TrueTech/task1/SonicHedgehog/build/webots_adapter/build --no-deps symlink_data
