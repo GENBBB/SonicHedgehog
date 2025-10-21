@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>webots_adapter</name>
+  <version>0.1.0</version>
+  <description>ROS2 adapter for Webots simulation: telemetry and cmd_vel interface.</description>
+  <maintainer email="gengesav@gmail.com">GENBBB</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>transforms3d</exec_depend>
+
+  <test_depend>pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
