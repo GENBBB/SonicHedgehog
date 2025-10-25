@@ -1,0 +1,6 @@
+odom_node:
+  ros__parameters:
+    port: "/dev/ttyACM1"
+    baudrate: 115200
+    update_rate: 10.0
+    wheel_base: 0.154

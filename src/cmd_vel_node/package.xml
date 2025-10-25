@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>cmd_vel_node</name>
+  <version>0.1.0</version>
+  <description>ROS2 node to control CobraFlex via cmd_vel</description>
+  <maintainer email="gengesav@gmail.com">GENBBB</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

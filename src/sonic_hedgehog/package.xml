@@ -12,9 +12,12 @@
   <exec_depend>teleop_ui</exec_depend>
   <exec_depend>visualization</exec_depend>
   <exec_depend>webots_adapter</exec_depend>
-  <exec_depend>task1</exec_depend>
+  <exec_depend>lidar_node</exec_depend>
+  <exec_depend>cmd_vel_node</exec_depend>
+  <exec_depend>odom_node</exec_depend>
 <!--  <exec_depend>keypoint_manager</exec_depend>
   <exec_depend>local_planner_nn</exec_depend>
+  <exec_depend>task1</exec_depend>
   <exec_depend>supervisor</exec_depend> -->
 
   <export>

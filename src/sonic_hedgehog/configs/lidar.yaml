@@ -1,0 +1,8 @@
+lidar_node:
+  ros__parameters:
+    com_port: "/dev/ttyUSB0"
+    baudrate: 230400
+    conf_threshold: 40
+    packets_per_frame: 40
+    publish_rate: 20.0
+    n_bins: 180

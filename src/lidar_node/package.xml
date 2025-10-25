@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>cmd_vel_node</name>
+  <version>0.1.0</version>
+  <description>ROS 2 node for reading LiDAR data via serial port, filtering, stabilizing,and publishing LaserScan messages to /scan topic</description>
+  <maintainer email="gengesav@gmail.com">GENBBB</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>numpy</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

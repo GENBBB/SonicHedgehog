@@ -6,8 +6,9 @@ from nav_msgs.msg import Odometry
 from sensor_msgs.msg import LaserScan
 from .sim_telemetry_node import SimTelemetry
 from .sim_cmdvel_node import SimCmdVel
-import transforms3d.euler as t3d_euler
+from tf_transformations import quaternion_from_euler, quaternion_multiply
 import threading
+import math
 
 class WebotsAdapterNode(Node):
     def __init__(self):
@@ -18,7 +19,7 @@ class WebotsAdapterNode(Node):
         cmd_port = self.get_parameter_or('cmd_port', 5555)
         tel_host = self.get_parameter_or('tel_host', '0.0.0.0')
         tel_port = self.get_parameter_or('tel_port', 5600)
-        self.rate_hz = self.get_parameter_or('rate_hz', 20.0)
+        self.rate_hz = self.get_parameter_or('rate_hz', 5.0)
 
         self.get_logger().info(
             f"Starting Webots Adapter: CMD {cmd_host}:{cmd_port}, TEL {tel_host}:{tel_port}, PROTO {proto}"
@@ -45,10 +46,14 @@ class WebotsAdapterNode(Node):
         static_t.header.stamp = self.get_clock().now().to_msg()
         static_t.header.frame_id = "base_link"
         static_t.child_frame_id = "laser_frame"
-        static_t.transform.translation.x = 0.1
+        static_t.transform.translation.x = 0.12
         static_t.transform.translation.y = 0.0
-        static_t.transform.translation.z = 0.2
-        static_t.transform.rotation = Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)
+        static_t.transform.translation.z = 0.0
+        q_x = quaternion_from_euler(-math.pi/2, 0.0, 0.0)
+        q_y = quaternion_from_euler(0.0, math.pi, 0.0)
+
+        q = quaternion_multiply(q_x, q_y)
+        static_t.transform.rotation = Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)   
         self.static_tf_broadcaster.sendTransform(static_t)
 
     def cmd_callback(self, msg: Twist):
@@ -78,8 +83,7 @@ class WebotsAdapterNode(Node):
         odom.pose.pose.position.x = x
         odom.pose.pose.position.y = y
         odom.pose.pose.position.z = 0.0
-        quat = t3d_euler.euler2quat(0, 0, th, axes='sxyz')
-        qx, qy, qz, qw = map(float, [quat[1], quat[2], quat[3], quat[0]])
+        qx, qy, qz, qw = quaternion_from_euler(0, 0, th)
         odom.pose.pose.orientation = Quaternion(x=qx, y=qy, z=qz, w=qw)
         odom.twist.twist.linear.x = vx
         odom.twist.twist.linear.y = vy
@@ -90,7 +94,7 @@ class WebotsAdapterNode(Node):
         self.odom_pub.publish(odom)
 
         t = TransformStamped()
-        t.header.stamp = odom.header.stamp
+        t.header.stamp = self.get_clock().now().to_msg()
         t.header.frame_id = "odom"
         t.child_frame_id = "base_link"
         t.transform.translation.x = x
@@ -103,12 +107,12 @@ class WebotsAdapterNode(Node):
             scan = LaserScan()
             scan.header.stamp = odom.header.stamp
             scan.header.frame_id = "laser_frame"
-            scan.angle_min = -1.57 / 2
-            scan.angle_max = 1.57 / 2
+            scan.angle_min = -math.pi / 4
+            scan.angle_max = +math.pi / 4
             scan.angle_increment = (scan.angle_max - scan.angle_min) / (len(ranges) - 1)
             scan.range_min = 0.1
             scan.range_max = 8.0
-            scan.ranges = [float('inf') if r < 8.0 else float('inf') for r in ranges]
+            scan.ranges = [r if r < 8.0 else float('inf') for r in ranges]
             scan.time_increment = 1.0 / (self.rate_hz * len(ranges))
             scan.scan_time = 1.0 / self.rate_hz
             self.scan_pub.publish(scan)
