@@ -1,7 +1,8 @@
 import rclpy
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Quaternion
+from geometry_msgs.msg import Quaternion, TransformStamped
+from tf2_ros import TransformBroadcaster
 import serial
 import json
 import math
@@ -29,6 +30,7 @@ class OdomNode(Node):
         self.last_odr = None
 
         self.publisher = self.create_publisher(Odometry, 'odom', 10)
+        self.tf_broadcaster = TransformBroadcaster(self)
 
         self.create_timer(1 / self.update_rate, self.update_and_publish_odom)
 
@@ -83,6 +85,16 @@ class OdomNode(Node):
         qw = math.cos(self.odom_data["theta"] / 2.0)
         msg.pose.pose.orientation = Quaternion(x=0.0, y=0.0, z=qz, w=qw)
         self.publisher.publish(msg)
+
+        t = TransformStamped()
+        t.header.stamp = msg.header.stamp
+        t.header.frame_id = "odom"
+        t.child_frame_id = "base_link"
+        t.transform.translation.x = self.odom_data["x"]
+        t.transform.translation.y = self.odom_data["y"]
+        t.transform.translation.z = 0.0
+        t.transform.rotation = msg.pose.pose.orientation
+        self.tf_broadcaster.sendTransform(t)
 
 def main(args=None):
     rclpy.init(args=args)

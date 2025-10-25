@@ -13,9 +13,15 @@ RUN apt-get update && apt-get install -y \
     python3-rosdep \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install pyserial numpy
+RUN apt-get update && apt-get install -y python3-venv
+    
+RUN python3 -m venv /opt/venv
 
-RUN rosdep init && rosdep update
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install pyserial numpy
+
+RUN rosdep update
 
 WORKDIR /ros2_ws
 

@@ -21,10 +21,15 @@ lock = threading.Lock()
 running = True
 
 # === СОЕДИНЕНИЕ ===
-ser = serial.Serial(PORT, BAUD, timeout=1)
+try:
+    ser = serial.Serial(PORT, BAUD, timeout=1)
+except Exception as e:
+    print(e)
+    ser = None
 
 def send_command(cmd_dict):
     msg = json.dumps(cmd_dict) + "\r\n"
+    print(f"|{msg}|")
     ser.write(msg.encode('utf-8'))
 
 def set_velocity(v, omega):

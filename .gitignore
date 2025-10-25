@@ -5,3 +5,4 @@ log
 tmp.py
 src/visualization/visualization/__pycache__
 src/webots_adapter/webots_adapter/__pycache__
+sonic.tar

@@ -1,6 +1,9 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
+from geometry_msgs.msg import TransformStamped, Quaternion
+from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
+from tf_transformations import quaternion_from_euler
 import serial
 import numpy as np
 import math
@@ -41,6 +44,20 @@ class LidarNode(Node):
 
         self.create_timer(0.001, self.read_packets)
 
+        self.static_tf_broadcaster = StaticTransformBroadcaster(self)
+        static_t = TransformStamped()
+        static_t.header.stamp = self.get_clock().now().to_msg()
+        static_t.header.frame_id = "base_link"
+        static_t.child_frame_id = "laser_frame"
+        static_t.transform.translation.x = 0.0
+        static_t.transform.translation.y = 0.0
+        static_t.transform.translation.z = 0.0
+        
+        q = quaternion_from_euler(0.0, 0.0 , 0.0)
+
+        static_t.transform.rotation = q 
+        self.static_tf_broadcaster.sendTransform(static_t)
+
     def read_packets(self):
         while self.ser.in_waiting:
             packet = self.read_lidar_packet()
@@ -69,7 +86,7 @@ class LidarNode(Node):
 
         msg = LaserScan()
         msg.header.stamp = self.get_clock().now().to_msg()
-        msg.header.frame_id = "laser_link"
+        msg.header.frame_id = "laser_frame"
 
         msg.angle_min = 0.0
         msg.angle_max = 2 * math.pi
