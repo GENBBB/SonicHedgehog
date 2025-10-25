@@ -106,6 +106,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 # === ЗАПУСК ===
 send_command({"T": 131, "cmd": 1})  # включить режим обратной связи
+send_command({"Т": 132, "IO1": 255, "IO2": 255})
 print("Робот запущен. Управление: w/s/a/d, Enter — стоп, Ctrl+C — выход.\n")
 
 threading.Thread(target=feedback_loop, daemon=True).start()
