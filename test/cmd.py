@@ -5,6 +5,7 @@ import time
 import threading
 import sys
 import signal
+from time import sleep
 
 # === ПАРАМЕТРЫ РОБОТА ===
 PORT = '/dev/ttyACM1'
@@ -12,6 +13,7 @@ BAUD = 115200
 WHEEL_RADIUS = 0.03725      # радиус колеса, м
 WHEEL_BASE = 0.154        # база между колёсами, м
 UPDATE_RATE = 0.1        # период обновления, с
+SLEEP_TIME = 0.5
 
 # === ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ===
 odom = {"x": 0.0, "y": 0.0, "theta": 0.0}
@@ -31,6 +33,7 @@ def send_command(cmd_dict):
     msg = json.dumps(cmd_dict) + "\r\n"
     print(f"|{msg}|")
     ser.write(msg.encode('utf-8'))
+    sleep(SLEEP_TIME)
 
 def set_velocity(v, omega):
     """Отправить команду движения с заданными линейной и угловой скоростями"""
