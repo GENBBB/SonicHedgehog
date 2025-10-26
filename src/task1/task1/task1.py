@@ -120,7 +120,7 @@ class MissionNode(Node):
         ]
 
         # Запуск миссии после инициализации
-        self.timer = self.create_timer(5.0, self.start_mission)
+        self.timer = self.create_timer(10.0, self.start_mission)
 
     # 3) Фидбэк:
     def _ntp_feedback_cb(self, feedback_msg):

@@ -11,7 +11,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', [
             'launch/sim_no_cmd.launch.py',
-            'launch/real_no_cmd.launch.py'
+            'launch/real_no_cmd.launch.py',
+            'launch/real_cmd.launch.py'
         ]),
         ('share/' + package_name + '/configs', [
             'configs/slam_toolbox.yaml',
