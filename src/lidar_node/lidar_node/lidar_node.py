@@ -42,6 +42,9 @@ class LidarNode(Node):
         self.packet_count = 0
         self.lock = Lock()
 
+        self.msg = None
+        self.create_timer(1 / self.publish_rate, self.send_msg)
+
         self.create_timer(0.001, self.read_packets)
 
         self.static_tf_broadcaster = StaticTransformBroadcaster(self)
@@ -55,8 +58,13 @@ class LidarNode(Node):
         
         q = quaternion_from_euler(0.0, 0.0 , 0.0)
 
-        static_t.transform.rotation = q 
+        static_t.transform.rotation = Quaternion(x=q[0],y=q[1],z=q[2],w=q[3])
         self.static_tf_broadcaster.sendTransform(static_t)
+    
+    def send_msg(self):
+        if self.msg is None:
+            return
+        self.publisher.publish(self.msg)
 
     def read_packets(self):
         while self.ser.in_waiting:
@@ -97,7 +105,7 @@ class LidarNode(Node):
         msg.range_max = 8.0
         msg.ranges = [float(r) if not np.isnan(r) else float('inf') for r in stable_bins]
 
-        self.publisher.publish(msg)
+        self.msg = msg
 
     def read_lidar_packet(self):
         tmp_str = ""

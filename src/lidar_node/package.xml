@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>cmd_vel_node</name>
+  <name>lidar_node</name>
   <version>0.1.0</version>
   <description>ROS 2 node for reading LiDAR data via serial port, filtering, stabilizing,and publishing LaserScan messages to /scan topic</description>
   <maintainer email="gengesav@gmail.com">GENBBB</maintainer>

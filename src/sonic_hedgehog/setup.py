@@ -10,7 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages', [f'resource/{package_name}']),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', [
-            'launch/sonic_no_cmd.launch.py'
+            'launch/sim_no_cmd.launch.py',
+            'launch/real_no_cmd.launch.py'
         ]),
         ('share/' + package_name + '/configs', [
             'configs/slam_toolbox.yaml',
