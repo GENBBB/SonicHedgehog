@@ -29,7 +29,7 @@ class CmdVelNode(Node):
             10
         )
 
-        self.get_logger().info(f"CmdVelNode запущен. Порт: {self.port}, Скорость: {self.baud}")
+        self.get_logger().info(f"CmdVelNode запущен. Порт: {self.port}, Скорость: {self.baudrate}")
 
     def send_command(self, cmd_dict):
         msg = json.dumps(cmd_dict) + "\r\n"

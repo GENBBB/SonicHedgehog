@@ -13,12 +13,8 @@ RUN apt-get update && apt-get install -y \
     python3-rosdep \
     python3-venv \
     && rm -rf /var/lib/apt/lists/*
-    
-RUN python3 -m venv /opt/venv
 
-ENV PATH="/opt/venv/bin:$PATH"
-
-RUN pip install pyserial numpy matplotlib opencv-python
+RUN sudo /usr/bin/python3 -m pip install pyserial numpy opencv-python matplotlib --break-system-packages
 
 RUN rosdep update
 
