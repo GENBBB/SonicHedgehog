@@ -31,7 +31,6 @@ def generate_launch_description():
     controller_params = PathJoinSubstitution([pkg_share, 'configs', 'controller_server.yaml'])
     bt_params         = PathJoinSubstitution([pkg_share, 'configs', 'bt_navigator.yaml'])
     behavior_params   = PathJoinSubstitution([pkg_share, 'configs', 'behavior_server.yaml'])
-    rviz_config       = PathJoinSubstitution([pkg_share, 'configs', 'rviz_config.rviz'])
     ekf_params        = PathJoinSubstitution([pkg_share, 'configs', 'ekf_odom.yaml'])
     lidar_params      = PathJoinSubstitution([pkg_share, 'configs', 'lidar.yaml'])
     odom_params       = PathJoinSubstitution([pkg_share, 'configs', 'odom.yaml'])
@@ -47,22 +46,32 @@ def generate_launch_description():
     )
 
     # --------- Драйверы/симуляция ----------
-    webots_adapter = Node(
-        condition=IfCondition(use_sim),
-        package='webots_adapter',
-        executable='webots_adapter_node',
-        name='webots_adapter',
-        output='screen',
-        parameters=[{'use_sim_time': use_sim_time}]
+    ldlidar_node = Node(
+      package='ldlidar_ros2',
+      executable='ldlidar_ros2_node',
+      name='ldlidar_publisher_ld19',
+      output='screen',
+      parameters=[
+        {'product_name': 'LDLiDAR_LD19'},
+        {'laser_scan_topic_name': 'scan'},
+        {'point_cloud_2d_topic_name': 'pointcloud2d'},
+        {'frame_id': 'laser_frame'},
+        {'port_name': '/dev/ttyUSB0'},
+        {'serial_baudrate': 230400},
+        {'laser_scan_dir': True},
+        {'enable_angle_crop_func': False},
+        {'angle_crop_min': 90.0},  # unit is degress
+        {'angle_crop_max': 270.0},  # unit is degress
+        {'range_min': 0.02}, # unit is meter
+        {'range_max': 12.0}   # unit is meter
+      ]
     )
 
-    lidar_node = Node(
-        condition=UnlessCondition(use_sim),   # <-- вместо "$({not} use_sim)"
-        package='lidar_node',
-        executable='lidar_node',
-        name='lidar_node',
-        output='screen',
-        parameters=[lidar_params, {'use_sim_time': use_sim_time}]
+    base_link_to_laser_tf_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='base_link_to_laser_frame',
+        arguments=['0','0','0.18','0','0','0','base_link','laser_frame']
     )
 
     odom_node = Node(
@@ -143,16 +152,6 @@ def generate_launch_description():
         }]
     )
 
-    # --------- RViz ----------
-    rviz = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='screen',
-        arguments=['-d', rviz_config],
-        parameters=[{'use_sim_time': use_sim_time}]
-    )
-
     # --------- Автосенд цели ----------
     # Replace send_goal_cmd block with:
     send_goal_cmd = ExecuteProcess(
@@ -179,9 +178,9 @@ def generate_launch_description():
         declare_goal_y,
         declare_goal_yaw,
 
-        # drivers / sim
-        webots_adapter,
-        lidar_node, odom_node, cmd_vel_node,
+        # drivers
+        ldlidar_node, base_link_to_laser_tf_node, 
+        odom_node, cmd_vel_node,
 
         # slam
         slam,
@@ -191,9 +190,6 @@ def generate_launch_description():
 
         # nav2
         planner, controller, bt_navigator, behavior_server, lifecycle_manager,
-
-        # rviz
-        rviz,
 
         # goal
         send_goal_timer,

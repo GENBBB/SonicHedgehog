@@ -26,6 +26,7 @@ setup(
             'configs/lidar.yaml',
             'configs/odom.yaml',
             'configs/cmd_vel.yaml',
+            'configs/ekf_odom.yaml'
         ]),
         ('share/' + package_name + '/rviz', [
             'rviz/rviz_config.rviz',

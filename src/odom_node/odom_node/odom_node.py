@@ -29,7 +29,7 @@ class OdomNode(Node):
         self.last_odl = None
         self.last_odr = None
 
-        self.publisher = self.create_publisher(Odometry, 'odom', 10)
+        self.publisher = self.create_publisher(Odometry, 'odom_wheel', 10)
         self.tf_broadcaster = TransformBroadcaster(self)
 
         self.create_timer(1 / self.update_rate, self.update_and_publish_odom)
