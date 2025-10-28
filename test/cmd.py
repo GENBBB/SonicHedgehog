@@ -31,9 +31,7 @@ except Exception as e:
 
 def send_command(cmd_dict):
     msg = json.dumps(cmd_dict) + "\r\n"
-    print(f"|{msg}|")
     ser.write(msg.encode('utf-8'))
-    sleep(SLEEP_TIME)
 
 def set_velocity(v, omega):
     """Отправить команду движения с заданными линейной и угловой скоростями"""
@@ -87,6 +85,11 @@ def update_odometry(odl_cm, odr_cm):
         odom["theta"] += dTheta
         odom["x"] += dC * math.cos(odom["theta"])
         odom["y"] += dC * math.sin(odom["theta"])
+        try:
+            with open("odometry_log.csv", "a") as f:
+                f.write(f"{time.time():.3f},{odom['x']:.4f},{odom['y']:.4f},{odom['theta']:.4f},{odl:.3f},{odr:.3f}\n")
+        except Exception as e:
+            print(f"[WARN] Ошибка записи одометрии: {e}")
 
 def feedback_loop():
     """Фоновый поток для чтения одометрии"""

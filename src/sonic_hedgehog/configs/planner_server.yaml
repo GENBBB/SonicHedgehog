@@ -8,7 +8,7 @@ planner_server:
       plugin: "nav2_navfn_planner::NavfnPlanner"
       use_astar: true
       allow_unknown: true
-      tolerance: 5.0  
+      tolerance: 1.0  
 
 global_costmap:
   global_costmap:
