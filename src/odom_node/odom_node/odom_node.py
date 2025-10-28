@@ -65,9 +65,9 @@ class OdomNode(Node):
         dC = (dL + dR) / 2.0
         dTheta = (dR - dL) / self.wheel_base
 
+        self.odom_data["x"] += dC * math.cos(self.odom_data["theta"] + dTheta / 2)
+        self.odom_data["y"] += dC * math.sin(self.odom_data["theta"] + dTheta / 2)
         self.odom_data["theta"] += dTheta
-        self.odom_data["x"] += dC * math.cos(self.odom_data["theta"])
-        self.odom_data["y"] += dC * math.sin(self.odom_data["theta"])
 
     def update_and_publish_odom(self):
         odl, odr = self.get_feedback()
