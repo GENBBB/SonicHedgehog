@@ -9,9 +9,9 @@ import numpy as np
 import math
 from threading import Lock
 
-from lidar_parser import CalcLidarData
-from lidar_filter import filter_lidar_points, binarize_by_degree
-from lidar_stabilizer import MedianStabilizer
+from .lidar_parser import CalcLidarData
+from .lidar_filter import filter_lidar_points, binarize_by_degree
+from .lidar_stabilizer import MedianStabilizer
 
 class LidarNode(Node):
     def __init__(self):

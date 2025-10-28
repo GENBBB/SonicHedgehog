@@ -1,10 +1,10 @@
 import os
 import serial
 import numpy as np
-from lidar_parser import CalcLidarData
-from lidar_filter import filter_lidar_points, binarize_by_degree
-from lidar_stabilizer import MedianStabilizer
-from lidar_visualizer import LidarVisualizer
+from .lidar_parser import CalcLidarData
+from .lidar_filter import filter_lidar_points, binarize_by_degree
+from .lidar_stabilizer import MedianStabilizer
+from .lidar_visualizer import LidarVisualizer
 
 # Параметры
 COM_PORT = "/dev/ttyUSB0"
