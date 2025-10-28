@@ -12,6 +12,7 @@ setup(
         ('share/' + package_name + '/launch', [
             'launch/sim_no_cmd.launch.py',
             'launch/real_no_cmd.launch.py',
+            'launch/nav_slam_to_point.launch.py'
             'launch/real_cmd.launch.py',
             'launch/real_no_cmd_ld19.launch.py',
             'launch/real_cmd_ld19.launch.py',
