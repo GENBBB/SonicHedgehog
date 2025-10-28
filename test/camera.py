@@ -1,4 +1,5 @@
 import cv2
+from time import sleep
 
 def find_video_device():
     for i in range(5):
@@ -14,11 +15,13 @@ cap = find_video_device()
 if not cap:
     exit()
 
-ret, frame = cap.read()
-if ret:
-    print("Кадр получен, сохраняю в snapshot.jpg")
-    cv2.imwrite("snapshot.jpg", frame)
-else:
-    print("Not удалось получить кадр.")
+while True:
+    ret, frame = cap.read()
+    if ret:
+        print("Кадр получен, сохраняю в snapshot.jpg")
+        cv2.imwrite("snapshot.jpg", frame)
+    else:
+        print("Not удалось получить кадр.")
+    sleep(0.1)
 
 cap.release()
