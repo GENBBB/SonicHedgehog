@@ -1,92 +1,118 @@
+import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, TimerAction, ExecuteProcess
-from launch.substitutions import LaunchConfiguration, TextSubstitution, PythonExpression, PathJoinSubstitution
-from launch_ros.substitutions import FindPackageShare
-from launch_ros.actions import Node
-from launch.conditions import IfCondition, UnlessCondition  # <-- важно
-
-
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import DeclareLaunchArgument, TimerAction, ExecuteProcess, EmitEvent, LogInfo, RegisterEventHandler
+from launch_ros.events.lifecycle import ChangeState
+from launch.events import matches_action
+from launch.substitutions import LaunchConfiguration, TextSubstitution
+from launch_ros.actions import Node, ComposableNodeContainer, LifecycleNode
+from launch.conditions import IfCondition
+from lifecycle_msgs.msg import Transition
+from ament_index_python.packages import get_package_share_directory
+from launch_ros.descriptions import ComposableNode
+from launch_ros.event_handlers import OnStateTransition
 
 def generate_launch_description():
     # --------- аргументы ----------
-    use_sim      = LaunchConfiguration('use_sim')
-    use_sim_time = LaunchConfiguration('use_sim_time')
-    use_ekf      = LaunchConfiguration('use_ekf')
-    send_goal    = LaunchConfiguration('send_goal')
-    goal_x       = LaunchConfiguration('goal_x')
-    goal_y       = LaunchConfiguration('goal_y')
-    goal_yaw     = LaunchConfiguration('goal_yaw')
-
-    declare_use_sim      = DeclareLaunchArgument('use_sim',      default_value='false')
     declare_use_sim_time = DeclareLaunchArgument('use_sim_time', default_value='false')
-    declare_use_ekf      = DeclareLaunchArgument('use_ekf',      default_value='true')
-    declare_send_goal    = DeclareLaunchArgument('send_goal',    default_value='true')
-    declare_goal_x       = DeclareLaunchArgument('goal_x',       default_value='1.3')
-    declare_goal_y       = DeclareLaunchArgument('goal_y',       default_value='1.3')
-    declare_goal_yaw     = DeclareLaunchArgument('goal_yaw',     default_value='0.0')
+    declare_send_goal = DeclareLaunchArgument('send_goal', default_value='true')
 
-    pkg_share = FindPackageShare('sonic_hedgehog')
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    send_goal = LaunchConfiguration('send_goal')
+    goal_x = 1.5
+    goal_y = 1.5
+    goal_yaw = 0.0
+
+    pkg_path = os.path.join(
+        get_package_share_directory('sonic_hedgehog'), 'configs'
+    )
 
     # --------- пути к параметрам ----------
-    slam_params       = PathJoinSubstitution([pkg_share, 'configs', 'slam_toolbox.yaml'])
-    planner_params    = PathJoinSubstitution([pkg_share, 'configs', 'planner_server.yaml'])
-    controller_params = PathJoinSubstitution([pkg_share, 'configs', 'controller_server.yaml'])
-    bt_params         = PathJoinSubstitution([pkg_share, 'configs', 'bt_navigator.yaml'])
-    behavior_params   = PathJoinSubstitution([pkg_share, 'configs', 'behavior_server.yaml'])
-    ekf_params        = PathJoinSubstitution([pkg_share, 'configs', 'ekf_odom.yaml'])
-    lidar_params      = PathJoinSubstitution([pkg_share, 'configs', 'lidar.yaml'])
-    odom_params       = PathJoinSubstitution([pkg_share, 'configs', 'odom.yaml'])
-    cmdvel_params     = PathJoinSubstitution([pkg_share, 'configs', 'cmd_vel.yaml'])
+    slam_params = os.path.join(pkg_path, 'slam_toolbox.yaml')
+    cmd_vel_params = os.path.join(pkg_path, 'cmd_vel.yaml')
+    odom_params = os.path.join(pkg_path, 'odom.yaml')
+    ekf_params = os.path.join(pkg_path, 'ekf_odom.yaml')
+    behavior_params = os.path.join(pkg_path, 'behavior_server.yaml')
+    planner_params = os.path.join(pkg_path, 'planner_server.yaml')
+    bt_params = os.path.join(pkg_path, 'bt_navigator.yaml')
+    controller_params = os.path.join(pkg_path, 'controller_server.yaml')
+
+    ldlidar_params = os.path.join(pkg_path, 'ld_lidar.yaml')
+    urdf_file_name = 'ldlidar_descr.urdf.xml'
+    urdf = os.path.join(
+        get_package_share_directory('ldlidar_node'),
+        'urdf',
+        urdf_file_name)
+    with open(urdf, 'r') as infp:
+        robot_desc = infp.read()
 
     # --------- SLAM ----------
-    slam = Node(
+    slam_node = LifecycleNode(
         package='slam_toolbox',
         executable='async_slam_toolbox_node',
         name='slam_toolbox',
+        namespace='',
         output='screen',
         parameters=[slam_params, {'use_sim_time': use_sim_time}]
     )
 
-    # --------- Драйверы/симуляция ----------
-    # ldlidar_node = Node(
-    #   package='ldlidar_ros2',
-    #   executable='ldlidar_ros2_node',
-    #   name='ldlidar_publisher_ld19',
-    #   output='screen',
-    #   parameters=[
-    #     {'product_name': 'LDLiDAR_LD19'},
-    #     {'laser_scan_topic_name': 'scan'},
-    #     {'point_cloud_2d_topic_name': 'pointcloud2d'},
-    #     {'frame_id': 'laser_frame'},
-    #     {'port_name': '/dev/ttyUSB0'},
-    #     {'serial_baudrate': 230400},
-    #     {'laser_scan_dir': True},
-    #     {'enable_angle_crop_func': False},
-    #     {'angle_crop_min': 90.0},  # unit is degress
-    #     {'angle_crop_max': 270.0},  # unit is degress
-    #     {'range_min': 0.02}, # unit is meter
-    #     {'range_max': 12.0}   # unit is meter
-    #   ]
-    # )
+    configure_event = EmitEvent(
+        event=ChangeState(
+            lifecycle_node_matcher=matches_action(slam_node),
+            transition_id=Transition.TRANSITION_CONFIGURE
+        ),
+    )
 
-    lidar_bringup = IncludeLaunchDescription(
-    PythonLaunchDescriptionSource(
-        PathJoinSubstitution([FindPackageShare('ldrobot_lidar_ros2'), 'launch', 'ldlidar_bringup.launch.py'])
-    ),
-    launch_arguments={'use_sim_time': use_sim_time}.items()
-)
+    activate_event = RegisterEventHandler(
+        OnStateTransition(
+            target_lifecycle_node=slam_node,
+            start_state='configuring',
+            goal_state='inactive',
+            entities=[
+                LogInfo(msg='[Lifecycle] Activating slam_toolbox...'),
+                EmitEvent(event=ChangeState(
+                    lifecycle_node_matcher=matches_action(slam_node),
+                    transition_id=Transition.TRANSITION_ACTIVATE
+                ))
+            ]
+        ),
+    )
 
-    base_link_to_laser_tf_node = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='base_link_to_laser_frame',
-        arguments=['0','0','0.18','0','0','0','base_link','laser_frame']
+    # --------- Lidar ----------
+
+    rsp_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='ldlidar_state_publisher',
+        output='screen',
+        parameters=[{'robot_description': robot_desc}],
+        arguments=[urdf]
+    )
+
+    container_name_val = 'ldlidar_container'
+    distro = os.environ['ROS_DISTRO']
+    if distro == 'foxy':
+        container_exec='component_container'
+    else:
+        container_exec='component_container_isolated'
+    
+    ldlidar_container = ComposableNodeContainer(
+            name=container_name_val,
+            namespace='',
+            package='rclcpp_components',
+            executable=container_exec,
+            composable_node_descriptions=[
+                ComposableNode(
+                    package='ldlidar_component',
+                    plugin='ldlidar::LdLidarComponent',
+                    name='ld_lidar',
+                    parameters=[ldlidar_params],
+                    extra_arguments=[{'use_intra_process_comms': True}],
+                ),
+            ],
+            output='screen',
     )
 
     odom_node = Node(
-        condition=UnlessCondition(use_sim),
         package='odom_node',
         executable='odom_node',
         name='odom_node',
@@ -95,17 +121,15 @@ def generate_launch_description():
     )
 
     cmd_vel_node = Node(
-        condition=UnlessCondition(use_sim),
         package='cmd_vel_node',
         executable='cmd_vel_node',
         name='cmd_vel_node',
         output='screen',
-        parameters=[cmdvel_params, {'use_sim_time': use_sim_time}]
+        parameters=[cmd_vel_params, {'use_sim_time': use_sim_time}]
     )
 
-    # --------- EKF (опционально) ----------
+    # --------- EKF ----------
     ekf_node = Node(
-        condition=IfCondition(use_ekf),
         package='robot_localization',
         executable='ekf_node',
         name='ekf_localization_node',
@@ -115,6 +139,7 @@ def generate_launch_description():
 
     # --------- Nav2 ----------
     planner = Node(
+        condition=IfCondition(send_goal),
         package='nav2_planner',
         executable='planner_server',
         name='planner_server',
@@ -123,6 +148,7 @@ def generate_launch_description():
     )
 
     controller = Node(
+        condition=IfCondition(send_goal),
         package='nav2_controller',
         executable='controller_server',
         name='controller_server',
@@ -131,6 +157,7 @@ def generate_launch_description():
     )
 
     bt_navigator = Node(
+        condition=IfCondition(send_goal),
         package='nav2_bt_navigator',
         executable='bt_navigator',
         name='bt_navigator',
@@ -139,6 +166,7 @@ def generate_launch_description():
     )
 
     behavior_server = Node(
+        condition=IfCondition(send_goal),
         package='nav2_behaviors',
         executable='behavior_server',
         name='behavior_server',
@@ -147,6 +175,7 @@ def generate_launch_description():
     )
 
     lifecycle_manager = Node(
+        condition=IfCondition(send_goal),
         package='nav2_lifecycle_manager',
         executable='lifecycle_manager',
         name='lifecycle_manager_navigation',
@@ -158,43 +187,41 @@ def generate_launch_description():
                 'controller_server',
                 'planner_server',
                 'behavior_server',
-                'bt_navigator'
+                'bt_navigator',
+                'ld_lidar',
             ]
         }]
     )
 
     # --------- Автосенд цели ----------
     # Replace send_goal_cmd block with:
+    goal_str = (
+        '"{pose: {pose: {position: {x: ' + str(goal_x) + ', y: ' + str(goal_y) + ', z: 0.0 }, orientation: { z: 0.0, w: 1.0 }}}}"'
+    )
+    print(goal_str)
     send_goal_cmd = ExecuteProcess(
         condition=IfCondition(send_goal),
         shell=True,
         cmd=[
             'ros2', 'action', 'send_goal', '/navigate_to_pose', 'nav2_msgs/action/NavigateToPose',
-            "{pose: { header: { frame_id: 'map' }, pose: { position: {x: ",
-            goal_x,
-            ", y: ",
-            goal_y,
-            ", z: 0.0}, orientation: {z: 0.0, w: 1.0} } } }"
+            goal_str
         ],
         output='screen'
     )
     send_goal_timer = TimerAction(period=10.0, actions=[send_goal_cmd])
 
     return LaunchDescription([
-        declare_use_sim,
         declare_use_sim_time,
-        declare_use_ekf,
         declare_send_goal,
-        declare_goal_x,
-        declare_goal_y,
-        declare_goal_yaw,
 
         # drivers
-        base_link_to_laser_tf_node, 
+        rsp_node, ldlidar_container,
         odom_node, cmd_vel_node,
 
         # slam
-        slam,
+        slam_node,
+
+        configure_event, activate_event,
 
         # ekf
         ekf_node,
