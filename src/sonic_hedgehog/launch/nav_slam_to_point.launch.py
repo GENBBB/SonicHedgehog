@@ -1,40 +1,41 @@
+import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, TimerAction, ExecuteProcess
-from launch.substitutions import LaunchConfiguration, TextSubstitution, PythonExpression, PathJoinSubstitution
-from launch_ros.substitutions import FindPackageShare
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch.conditions import IfCondition, UnlessCondition  # <-- важно
+from launch.conditions import IfCondition
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     # --------- аргументы ----------
-    use_sim      = LaunchConfiguration('use_sim')
     use_sim_time = LaunchConfiguration('use_sim_time')
-    use_ekf      = LaunchConfiguration('use_ekf')
-    send_goal    = LaunchConfiguration('send_goal')
-    goal_x       = LaunchConfiguration('goal_x')
-    goal_y       = LaunchConfiguration('goal_y')
-    goal_yaw     = LaunchConfiguration('goal_yaw')
+    my_lidar = LaunchConfiguration('my_lidar')
+    send_goal = LaunchConfiguration('send_goal')
+    goal_x = LaunchConfiguration('goal_x')
+    goal_y = LaunchConfiguration('goal_y')
+    goal_yaw = LaunchConfiguration('goal_yaw')
 
-    declare_use_sim      = DeclareLaunchArgument('use_sim',      default_value='false')
     declare_use_sim_time = DeclareLaunchArgument('use_sim_time', default_value='false')
-    declare_use_ekf      = DeclareLaunchArgument('use_ekf',      default_value='true')
-    declare_send_goal    = DeclareLaunchArgument('send_goal',    default_value='true')
-    declare_goal_x       = DeclareLaunchArgument('goal_x',       default_value='1.3')
-    declare_goal_y       = DeclareLaunchArgument('goal_y',       default_value='1.3')
-    declare_goal_yaw     = DeclareLaunchArgument('goal_yaw',     default_value='0.0')
+    declare_my_lidar = DeclareLaunchArgument('my_lidar', default_value=False)
+    declare_send_goal = DeclareLaunchArgument('send_goal', default_value='true')
+    declare_goal_x = DeclareLaunchArgument('goal_x', default_value='1.3')
+    declare_goal_y = DeclareLaunchArgument('goal_y', default_value='1.3')
+    declare_goal_yaw = DeclareLaunchArgument('goal_yaw', default_value='0.0')
 
-    pkg_share = FindPackageShare('sonic_hedgehog')
+    pkg_path = os.path.join(
+        get_package_share_directory('sonic_hedgehog'), 'configs'
+    )
 
     # --------- пути к параметрам ----------
-    slam_params       = PathJoinSubstitution([pkg_share, 'configs', 'slam_toolbox.yaml'])
-    planner_params    = PathJoinSubstitution([pkg_share, 'configs', 'planner_server.yaml'])
-    controller_params = PathJoinSubstitution([pkg_share, 'configs', 'controller_server.yaml'])
-    bt_params         = PathJoinSubstitution([pkg_share, 'configs', 'bt_navigator.yaml'])
-    behavior_params   = PathJoinSubstitution([pkg_share, 'configs', 'behavior_server.yaml'])
-    ekf_params        = PathJoinSubstitution([pkg_share, 'configs', 'ekf_odom.yaml'])
-    lidar_params      = PathJoinSubstitution([pkg_share, 'configs', 'lidar.yaml'])
-    odom_params       = PathJoinSubstitution([pkg_share, 'configs', 'odom.yaml'])
-    cmdvel_params     = PathJoinSubstitution([pkg_share, 'configs', 'cmd_vel.yaml'])
+    slam_params = os.path.join(pkg_path, 'slam_toolbox.yaml')
+    lidar_params = os.path.join(pkg_path, 'lidar.yaml')
+    cmd_vel_params = os.path.join(pkg_path, 'cmd_vel.yaml')
+    odom_params = os.path.join(pkg_path, 'odom.yaml')
+    ekf_params = os.path.join(pkg_path, 'ekf_odom.yaml')
+    behavior_server_params = os.path.join(pkg_path, 'behavior_server.yaml')
+    planner_server_params = os.path.join(pkg_path, 'planner_server.yaml')
+    bt_navigator_params = os.path.join(pkg_path, 'bt_navigator.yaml')
+    controller_server_params = os.path.join(pkg_path, 'controller_server.yaml')
 
     # --------- SLAM ----------
     slam = Node(
@@ -47,6 +48,7 @@ def generate_launch_description():
 
     # --------- Драйверы/симуляция ----------
     ldlidar_node = Node(
+      condition=IfCondition(not my_lidar),
       package='ldlidar_ros2',
       executable='ldlidar_ros2_node',
       name='ldlidar_publisher_ld19',
@@ -68,14 +70,23 @@ def generate_launch_description():
     )
 
     base_link_to_laser_tf_node = Node(
+        condition=IfCondition(not my_lidar),
         package='tf2_ros',
         executable='static_transform_publisher',
         name='base_link_to_laser_frame',
-        arguments=['0','0','0.18','0','0','0','base_link','laser_frame']
+        arguments=['0','0','0','0','0','0','base_link','laser_frame']
+    )
+
+    lidar_node = Node(
+        condition=IfCondition(my_lidar),
+        package='lidar_node',
+        executable='lidar_node',
+        name='lidar_node',
+        output='screen',
+        parameters=[lidar_params, {'use_sim_time': use_sim_time}]
     )
 
     odom_node = Node(
-        condition=UnlessCondition(use_sim),
         package='odom_node',
         executable='odom_node',
         name='odom_node',
@@ -84,17 +95,15 @@ def generate_launch_description():
     )
 
     cmd_vel_node = Node(
-        condition=UnlessCondition(use_sim),
         package='cmd_vel_node',
         executable='cmd_vel_node',
         name='cmd_vel_node',
         output='screen',
-        parameters=[cmdvel_params, {'use_sim_time': use_sim_time}]
+        parameters=[cmd_vel_params, {'use_sim_time': use_sim_time}]
     )
 
-    # --------- EKF (опционально) ----------
+    # --------- EKF ----------
     ekf_node = Node(
-        condition=IfCondition(use_ekf),
         package='robot_localization',
         executable='ekf_node',
         name='ekf_localization_node',
@@ -104,38 +113,43 @@ def generate_launch_description():
 
     # --------- Nav2 ----------
     planner = Node(
+        condition=IfCondition(not send_goal),
         package='nav2_planner',
         executable='planner_server',
         name='planner_server',
         output='screen',
-        parameters=[planner_params, {'use_sim_time': use_sim_time}]
+        parameters=[planner_server_params, {'use_sim_time': use_sim_time}]
     )
 
     controller = Node(
+        condition=IfCondition(not send_goal),
         package='nav2_controller',
         executable='controller_server',
         name='controller_server',
         output='screen',
-        parameters=[controller_params, {'use_sim_time': use_sim_time}]
+        parameters=[controller_server_params, {'use_sim_time': use_sim_time}]
     )
 
     bt_navigator = Node(
+        condition=IfCondition(not send_goal),
         package='nav2_bt_navigator',
         executable='bt_navigator',
         name='bt_navigator',
         output='screen',
-        parameters=[bt_params, {'use_sim_time': use_sim_time}]
+        parameters=[bt_navigator_params, {'use_sim_time': use_sim_time}]
     )
 
     behavior_server = Node(
+        condition=IfCondition(not send_goal),
         package='nav2_behaviors',
         executable='behavior_server',
         name='behavior_server',
         output='screen',
-        parameters=[behavior_params, {'use_sim_time': use_sim_time}]
+        parameters=[behavior_server_params, {'use_sim_time': use_sim_time}]
     )
 
     lifecycle_manager = Node(
+        condition=IfCondition(not send_goal),
         package='nav2_lifecycle_manager',
         executable='lifecycle_manager',
         name='lifecycle_manager_navigation',
@@ -153,7 +167,6 @@ def generate_launch_description():
     )
 
     # --------- Автосенд цели ----------
-    # Replace send_goal_cmd block with:
     send_goal_cmd = ExecuteProcess(
         condition=IfCondition(send_goal),
         shell=True,
@@ -170,16 +183,15 @@ def generate_launch_description():
     send_goal_timer = TimerAction(period=10.0, actions=[send_goal_cmd])
 
     return LaunchDescription([
-        declare_use_sim,
         declare_use_sim_time,
-        declare_use_ekf,
+        declare_my_lidar,
         declare_send_goal,
         declare_goal_x,
         declare_goal_y,
         declare_goal_yaw,
 
         # drivers
-        ldlidar_node, base_link_to_laser_tf_node, 
+        ldlidar_node, base_link_to_laser_tf_node, lidar_node,
         odom_node, cmd_vel_node,
 
         # slam

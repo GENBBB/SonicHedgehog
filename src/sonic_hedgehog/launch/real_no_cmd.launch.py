@@ -20,6 +20,7 @@ def generate_launch_description():
     lidar_params = os.path.join(pkg_path, 'lidar.yaml')
     cmd_vel_params = os.path.join(pkg_path, 'cmd_vel.yaml')
     odom_params = os.path.join(pkg_path, 'odom.yaml')
+    ekf_params = os.path.join(pkg_path, 'ekf_odom.yaml')
     
     # --- Аргументы ---
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -92,6 +93,14 @@ def generate_launch_description():
         parameters=[odom_params, {'use_sim_time': use_sim_time}]
     )
 
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_localization_node',
+        output='screen',
+        parameters=[ekf_params, {'use_sim_time': use_sim_time}]
+    )
+
 
     return LaunchDescription([
         declare_use_sim_time,
@@ -102,4 +111,5 @@ def generate_launch_description():
         lidar_node,
         cmd_vel_node,
         odom_node,
+        ekf_node,
     ])
