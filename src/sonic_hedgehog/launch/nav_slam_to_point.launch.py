@@ -5,6 +5,10 @@ from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
 from launch.conditions import IfCondition, UnlessCondition  # <-- важно
 
+
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
 def generate_launch_description():
     # --------- аргументы ----------
     use_sim      = LaunchConfiguration('use_sim')
@@ -46,26 +50,33 @@ def generate_launch_description():
     )
 
     # --------- Драйверы/симуляция ----------
-    ldlidar_node = Node(
-      package='ldlidar_ros2',
-      executable='ldlidar_ros2_node',
-      name='ldlidar_publisher_ld19',
-      output='screen',
-      parameters=[
-        {'product_name': 'LDLiDAR_LD19'},
-        {'laser_scan_topic_name': 'scan'},
-        {'point_cloud_2d_topic_name': 'pointcloud2d'},
-        {'frame_id': 'laser_frame'},
-        {'port_name': '/dev/ttyUSB0'},
-        {'serial_baudrate': 230400},
-        {'laser_scan_dir': True},
-        {'enable_angle_crop_func': False},
-        {'angle_crop_min': 90.0},  # unit is degress
-        {'angle_crop_max': 270.0},  # unit is degress
-        {'range_min': 0.02}, # unit is meter
-        {'range_max': 12.0}   # unit is meter
-      ]
-    )
+    # ldlidar_node = Node(
+    #   package='ldlidar_ros2',
+    #   executable='ldlidar_ros2_node',
+    #   name='ldlidar_publisher_ld19',
+    #   output='screen',
+    #   parameters=[
+    #     {'product_name': 'LDLiDAR_LD19'},
+    #     {'laser_scan_topic_name': 'scan'},
+    #     {'point_cloud_2d_topic_name': 'pointcloud2d'},
+    #     {'frame_id': 'laser_frame'},
+    #     {'port_name': '/dev/ttyUSB0'},
+    #     {'serial_baudrate': 230400},
+    #     {'laser_scan_dir': True},
+    #     {'enable_angle_crop_func': False},
+    #     {'angle_crop_min': 90.0},  # unit is degress
+    #     {'angle_crop_max': 270.0},  # unit is degress
+    #     {'range_min': 0.02}, # unit is meter
+    #     {'range_max': 12.0}   # unit is meter
+    #   ]
+    # )
+
+    lidar_bringup = IncludeLaunchDescription(
+    PythonLaunchDescriptionSource(
+        PathJoinSubstitution([FindPackageShare('ldrobot_lidar_ros2'), 'launch', 'ldlidar_bringup.launch.py'])
+    ),
+    launch_arguments={'use_sim_time': use_sim_time}.items()
+)
 
     base_link_to_laser_tf_node = Node(
         package='tf2_ros',
@@ -179,7 +190,7 @@ def generate_launch_description():
         declare_goal_yaw,
 
         # drivers
-        ldlidar_node, base_link_to_laser_tf_node, 
+        base_link_to_laser_tf_node, 
         odom_node, cmd_vel_node,
 
         # slam
