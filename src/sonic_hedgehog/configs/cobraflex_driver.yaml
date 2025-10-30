@@ -5,18 +5,18 @@ cobraflex_driver:
     wheel_radius: 0.03725   # м
     wheel_base: 0.154       # м
     invert_left: false
-    invert_right: true
+    invert_right: false
     max_rpm: 150.0
 
     # Частоты/кадры/топики
     odom_rate: 50.0
-    odom_topic: "odom"
-    odom_frame: "odom"
+    odom_topic: "odom_wheel"
+    odom_frame: "odom_wheel"
     base_link_frame: "base_link"
 
     # Опрос одометрии у МК
     poll_odom: true
-    odom_poll_template: '{"T":7}'
+    odom_poll_template: '{"T": 130}'
     left_key: "odl"
     right_key: "odr"
     units: "cm"

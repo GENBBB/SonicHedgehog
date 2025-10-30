@@ -2,12 +2,18 @@ bt_navigator:
   ros__parameters:
     global_frame: map
     robot_base_frame: base_link
+    odom_topic: odom
     transform_tolerance: 0.1
     filter_duration: 0.3
     introspection_mode: "disabled"
     bt_search_directories: /opt/ros/jazzy/share/nav2_bt_navigator/behavior_trees
     default_nav_to_pose_bt_xml: /opt/ros/jazzy/share/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml
+    default_nav_through_poses_bt_xml: /opt/ros/jazzy/share/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml
     always_reload_bt_xml: false
+    bt_loop_duration: 10
+    filter_duration: 0.3
+    default_server_timeout: 20
+    wait_for_service_timeout: 1000
     goal_blackboard_id: goal
     goals_blackboard_id: goals
     path_blackboard_id: path
@@ -17,3 +23,7 @@ bt_navigator:
       plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
       enable_groot_monitoring: false
       groot_server_port: 1667
+    navigate_through_poses:
+      plugin: "nav2_bt_navigator::NavigateThroughPosesNavigator"
+      enable_groot_monitoring: false
+      groot_server_port: 1669

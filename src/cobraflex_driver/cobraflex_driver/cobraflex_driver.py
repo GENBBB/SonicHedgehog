@@ -69,7 +69,7 @@ class CobraflexDriver(Node):
         self.declare_parameter('wheel_radius', 0.03725)   # [m]
         self.declare_parameter('wheel_base', 0.154)       # [m] (axle distance)
         self.declare_parameter('invert_left', False)
-        self.declare_parameter('invert_right', True)
+        self.declare_parameter('invert_right', False)
         self.declare_parameter('max_rpm', 150.0)
         self.declare_parameter('odom_rate', 50.0)         # [Hz]
         self.declare_parameter('odom_topic', 'odom')
@@ -82,7 +82,7 @@ class CobraflexDriver(Node):
 
         # Odometry stream configuration
         self.declare_parameter('poll_odom', True)
-        self.declare_parameter('odom_poll_template', '{"T":7}')
+        self.declare_parameter('odom_poll_template', '{"T": 130}')
         self.declare_parameter('left_key', 'odl')
         self.declare_parameter('right_key', 'odr')
         self.declare_parameter('units', 'cm')  # 'cm' or 'm'
@@ -193,7 +193,7 @@ class CobraflexDriver(Node):
         vL = v - (self.W * 0.5) * w
         vR = v + (self.W * 0.5) * w
 
-        # Convert to RPM
+        # Convert to RPM(1 unit is 0.1 RPM)
         rpmL = (vL / (2.0 * math.pi * self.R)) * 60.0
         rpmR = (vR / (2.0 * math.pi * self.R)) * 60.0
 
@@ -205,7 +205,7 @@ class CobraflexDriver(Node):
         rpmL = clamp(rpmL, -self.max_rpm, self.max_rpm)
         rpmR = clamp(rpmR, -self.max_rpm, self.max_rpm)
 
-        self._send({'T': 1, 'L': round(rpmL, 3), 'R': round(rpmR, 3)})
+        self._send({'T': 1, 'L': int(rpmL * 10), 'R': int(rpmR * 10)})
         self._last_cmd_time = time.monotonic()
         self._last_twist_lin = v
         self._last_twist_ang = w
@@ -271,11 +271,11 @@ class CobraflexDriver(Node):
         dYaw = (dR - dL) / self.W         # [rad]
 
         # Integrate in body frame -> world frame
-        self.yaw += dYaw
-        cy = math.cos(self.yaw)
-        sy = math.sin(self.yaw)
+        cy = math.cos(self.yaw + dYaw / 2.0)
+        sy = math.sin(self.yaw + dYaw / 2.0)
         self.x += dC * cy
         self.y += dC * sy
+        self.yaw += dYaw
 
         # Timing
         now = self.get_clock().now()
