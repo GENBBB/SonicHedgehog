@@ -19,13 +19,13 @@ behavior_server:
       backup.deceleration_limit: -2.5
       backup.minimum_speed: 0.1
     drive_on_heading:
-      plugin: "nav2_behaviors/DriveOnHeading"
+      plugin: "nav2_behaviors::DriveOnHeading"
       simulate_ahead_time: 1.0
       drive_on_heading.acceleration_limit: 2.5
       drive_on_heading.deceleration_limit: -2.5
       drive_on_heading.minimum_speed: 0.2
     wait:
-      plugin: "nav2_behaviors/Wait"
+      plugin: "nav2_behaviors::Wait"
       wait_duration: 2.0
     local_frame: odom
     global_frame: map
