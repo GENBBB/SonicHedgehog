@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-slam-toolbox \
     ros-jazzy-tf-transformations \
     ros-jazzy-teleop-twist-keyboard \
+    ros-jazzy-rviz2 \
     python3-pip \
     python3-rosdep \
     python3-venv \

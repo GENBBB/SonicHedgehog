@@ -18,8 +18,8 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time')
     send_goal = LaunchConfiguration('send_goal')
-    goal_x = 1.5
-    goal_y = 1.5
+    goal_x = 0.0
+    goal_y = 2.6
     goal_yaw = 0.0
 
     pkg_path = os.path.join(
@@ -184,11 +184,11 @@ def generate_launch_description():
             'use_sim_time': use_sim_time,
             'autostart': True,
             'node_names': [
+                'ld_lidar',
                 'controller_server',
                 'planner_server',
                 'behavior_server',
                 'bt_navigator',
-                'ld_lidar',
             ]
         }]
     )
@@ -196,9 +196,11 @@ def generate_launch_description():
     # --------- Автосенд цели ----------
     # Replace send_goal_cmd block with:
     goal_str = (
-        '"{pose: {pose: {position: {x: ' + str(goal_x) + ', y: ' + str(goal_y) + ', z: 0.0 }, orientation: { z: 0.0, w: 1.0 }}}}"'
+        '"{pose: {header: {frame_id: \'map\'}, pose: {position: {x: ' 
+        + str(goal_x) 
+        + ', y: ' + str(goal_y) 
+        + ', z: 0.0 }, orientation: { z: 0.0, w: 1.0}}}}"'
     )
-    print(goal_str)
     send_goal_cmd = ExecuteProcess(
         condition=IfCondition(send_goal),
         shell=True,

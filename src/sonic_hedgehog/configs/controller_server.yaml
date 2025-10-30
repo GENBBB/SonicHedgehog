@@ -23,7 +23,7 @@ controller_server:
 
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      desired_linear_vel: .5
+      desired_linear_vel: 0.3
       lookahead_dist: 0.6
       min_lookahead_dist: 0.3
       max_lookahead_dist: 1.5
@@ -34,7 +34,7 @@ controller_server:
       min_approach_linear_velocity: 0.05
       approach_velocity_scaling_dist: 2.0
 
-      use_collision_detection: true
+      use_collision_detection: false
 
       max_allowed_time_to_collision_up_to_carrot: 1.0
       use_regulated_linear_velocity_scaling: true
@@ -78,7 +78,7 @@ local_costmap:
         transform_tolerance: 1.0
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        inflation_radius: 0.1   # ~20 см радиус инфляции
+        inflation_radius: 0.25   # ~20 см радиус инфляции
         cost_scaling_factor: 2.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
@@ -87,7 +87,7 @@ local_costmap:
         raytrace_range: 3.0           # дальность очистки лучом
         observation_sources: "laser"
         laser:
-          topic: scan
+          topic: /ld_lidar/scan
           sensor_frame: laser_frame
           data_type: LaserScan
           clearing: true

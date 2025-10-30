@@ -12,4 +12,7 @@ sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo docker build -t sonic .
+#sudo docker build -t sonic .
+sudo docker pull rbegishev/sonic:sonic
+sudo chmod +x docker.sh
+sudo chmod +x utils/to_docker.sh
