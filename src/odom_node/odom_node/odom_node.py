@@ -15,7 +15,7 @@ class OdomNode(Node):
         self.declare_parameter('port', '/dev/ttyACM1')
         self.declare_parameter('baudrate', 115200)
         self.declare_parameter('wheel_base', 0.154)
-        self.declare_parameter('update_rate', 10.0)
+        self.declare_parameter('update_rate', 50.0)
 
         self.port = self.get_parameter('port').get_parameter_value().string_value
         self.baudrate = self.get_parameter('baudrate').get_parameter_value().integer_value

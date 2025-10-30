@@ -37,6 +37,7 @@ def generate_launch_description():
     controller_params = os.path.join(pkg_path, 'controller_server.yaml')
 
     ldlidar_params = os.path.join(pkg_path, 'ld_lidar.yaml')
+    driver_params = os.path.join(pkg_path, 'cobraflex_driver.yaml')
     urdf_file_name = 'ldlidar_descr.urdf.xml'
     urdf = os.path.join(
         get_package_share_directory('ldlidar_node'),
@@ -112,20 +113,28 @@ def generate_launch_description():
             output='screen',
     )
 
-    odom_node = Node(
-        package='odom_node',
-        executable='odom_node',
-        name='odom_node',
-        output='screen',
-        parameters=[odom_params, {'use_sim_time': use_sim_time}]
-    )
+    # odom_node = Node(
+    #     package='odom_node',
+    #     executable='odom_node',
+    #     name='odom_node',
+    #     output='screen',
+    #     parameters=[odom_params, {'use_sim_time': use_sim_time}]
+    # )
 
-    cmd_vel_node = Node(
-        package='cmd_vel_node',
-        executable='cmd_vel_node',
-        name='cmd_vel_node',
+    # cmd_vel_node = Node(
+    #     package='cmd_vel_node',
+    #     executable='cmd_vel_node',
+    #     name='cmd_vel_node',
+    #     output='screen',
+    #     parameters=[cmd_vel_params, {'use_sim_time': use_sim_time}]
+    # )
+
+    cobraflex_driver = Node(
+        package='cobraflex_driver',
+        executable='cobraflex_driver',
+        name='cobraflex_driver',
         output='screen',
-        parameters=[cmd_vel_params, {'use_sim_time': use_sim_time}]
+        parameters=[driver_params, {'use_sim_time': use_sim_time}]
     )
 
     # --------- EKF ----------
@@ -218,8 +227,8 @@ def generate_launch_description():
 
         # drivers
         rsp_node, ldlidar_container,
-        odom_node, cmd_vel_node,
-
+        # odom_node, cmd_vel_node,
+        cobraflex_driver,
         # slam
         slam_node,
 

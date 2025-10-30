@@ -1,0 +1,28 @@
+cobraflex_driver:
+  ros__parameters:
+    port: "/dev/ttyACM1"
+    baudrate: 115200
+    wheel_radius: 0.03725   # м
+    wheel_base: 0.154       # м
+    invert_left: false
+    invert_right: true
+    max_rpm: 150.0
+
+    # Частоты/кадры/топики
+    odom_rate: 50.0
+    odom_topic: "odom"
+    odom_frame: "odom"
+    base_link_frame: "base_link"
+
+    # Опрос одометрии у МК
+    poll_odom: true
+    odom_poll_template: '{"T":7}'
+    left_key: "odl"
+    right_key: "odr"
+    units: "cm"
+
+    # Ковариации (подогнать под платформу)
+    cov_pose_xy: 0.02
+    cov_pose_yaw: 0.05
+    cov_twist_xy: 0.05
+    cov_twist_yaw: 0.1
