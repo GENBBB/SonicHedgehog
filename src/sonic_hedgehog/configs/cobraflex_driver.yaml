@@ -6,7 +6,7 @@ cobraflex_driver:
     wheel_base: 0.154       # м
     invert_left: false
     invert_right: false
-    max_rpm: 150.0
+    max_rpm: 100.0
 
     # Частоты/кадры/топики
     odom_rate: 50.0

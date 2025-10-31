@@ -35,12 +35,16 @@ global_costmap:
       width: 10
       height: 10
       track_unknown_space: true
-      plugins: ["static_layer"]
+      plugins: ["static_layer", "inflation_layer"]
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
         enabled: true
         subscribe_to_updates: true
         transform_tolerance: 1.0
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.05
+        cost_scaling_factor: 2.0
       always_send_full_costmap: True
       introspection_mode: "disabled"
