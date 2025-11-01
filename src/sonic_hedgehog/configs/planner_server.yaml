@@ -1,6 +1,6 @@
 planner_server:
   ros__parameters:
-    expected_planner_frequency: 5.0
+    expected_planner_frequency: 2.0
     costmap_update_timeout: 1.0
     planner_plugins: ["GridBased"]
     GridBased:
@@ -14,11 +14,11 @@ global_costmap:
     ros__parameters:
       footprint: "[[0.1175, 0.0865], [0.1175, -0.0865], [-0.1175, -0.0865], [-0.1175, 0.0865]]"
       footprint_padding: 0.01
-      update_frequency: 2.0
-      publish_frequency: 2.0
+      update_frequency: 5.0
+      publish_frequency: 5.0
       global_frame: map
       robot_base_frame: base_link
-      resolution: 0.01
+      resolution: 0.02
       rolling_window: True
       width: 8
       height: 8
@@ -32,7 +32,8 @@ global_costmap:
         transform_tolerance: 1.0
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        inflation_radius: 0.3
+        inflation_radius: 0.18
         cost_scaling_factor: 10.0
+      
       always_send_full_costmap: True
       introspection_mode: "disabled"

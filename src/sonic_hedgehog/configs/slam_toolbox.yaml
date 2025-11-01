@@ -26,15 +26,15 @@ slam_toolbox:
     lifelong_nearby_penalty: 0.001
     lifelong_candidates_scale: 0.03
 
-    map_file_name: src/sonic_hedgehog/maps/clear_map
-    map_start_pose: [0.0, 0.0, 0.0]
+    # map_file_name: src/sonic_hedgehog/maps/clear_map
+    # map_start_pose: [0.0, 0.0, 0.0]
     #map_start_at_dock: true
 
     debug_logging: false
     throttle_scans: 1
     transform_publish_period: 0.02 #if 0 never publishes odometry
-    map_update_interval: 1.0
-    resolution: 0.01
+    map_update_interval: 0.2
+    resolution: 0.02
     min_laser_range: 0.1 #for rastering images
     max_laser_range: 15.0 #for rastering images
     minimum_time_interval: 0.1
