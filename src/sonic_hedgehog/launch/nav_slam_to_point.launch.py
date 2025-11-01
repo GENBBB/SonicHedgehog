@@ -138,13 +138,13 @@ def generate_launch_description():
     )
 
     # --------- EKF ----------
-    ekf_node = Node(
-        package='robot_localization',
-        executable='ekf_node',
-        name='ekf_localization_node',
-        output='screen',
-        parameters=[ekf_params, {'use_sim_time': use_sim_time}]
-    )
+    #ekf_node = Node(
+    #    package='robot_localization',
+    #    executable='ekf_node',
+    #    name='ekf_localization_node',
+    #    output='screen',
+    #    parameters=[ekf_params, {'use_sim_time': use_sim_time}]
+    #)
 
     # --------- Nav2 ----------
     planner = Node(
@@ -235,7 +235,7 @@ def generate_launch_description():
         configure_event, activate_event,
 
         # ekf
-        ekf_node,
+        #ekf_node,
 
         # nav2
         planner, controller, bt_navigator, behavior_server, lifecycle_manager,

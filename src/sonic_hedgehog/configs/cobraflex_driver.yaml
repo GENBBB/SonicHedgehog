@@ -10,8 +10,8 @@ cobraflex_driver:
 
     # Частоты/кадры/топики
     odom_rate: 50.0
-    odom_topic: "odom_wheel"
-    odom_frame: "odom_wheel"
+    odom_topic: "odom"
+    odom_frame: "odom"
     base_link_frame: "base_link"
 
     # Опрос одометрии у МК
